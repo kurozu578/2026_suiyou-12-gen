@@ -1,11 +1,11 @@
-services:
+ervices:
   web:
     image: nginx:latest
     ports:
       - 80:80
     volumes:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
-      - ./public/:/var/www/public
+      - ./public/:/var/www/public/
       - image:/var/www/upload/image/
     depends_on:
       - php

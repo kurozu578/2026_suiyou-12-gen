@@ -7,12 +7,7 @@ if (isset($_POST['body'])) {
   $image_filename = null;
   if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
     // アップロードされた画像がある場合
-
-    // 一時ファイル(tmp_name)の「本当の中身」をチェックする
-    $mime_type = mime_content_type($_FILES['image']['tmp_name']);
-
-    //取得した「本当のMIMEタイプ」がimage/から始まっているかチェック
-    if (preg_match('/^image\//', $mime_type) !== 1) {
+  if (preg_match('/^image\//', mime_content_type($_FILES['image']['tmp_name'])) !== 1) {
       // アップロードされたものが画像ではなかった場合処理を強制的に終了
       header("HTTP/1.1 302 Found");
       header("Location: ./bbsimagetest.php");
@@ -21,7 +16,7 @@ if (isset($_POST['body'])) {
 
     // 元のファイル名から拡張子を取得
     $pathinfo = pathinfo($_FILES['image']['name']);
-    $extension = isset($pathinfo['extension']) ? $pathinfo['extension'] : '';
+    $extension = $pathinfo['extension'];
     // 新しいファイル名を決める。他の投稿の画像ファイルと重複しないように時間+乱数で決める。
     $image_filename = strval(time()) . bin2hex(random_bytes(25)) . '.' . $extension;
     $filepath =  '/var/www/upload/image/' . $image_filename;
@@ -47,15 +42,11 @@ $select_sth = $dbh->prepare('SELECT * FROM bbs_entries ORDER BY created_at DESC'
 $select_sth->execute();
 ?>
 
-<head>
-  <title>画像投稿できる掲示板</title>
-</head> 
-
 <!-- フォームのPOST先はこのファイル自身にする -->
 <form method="POST" action="./bbsimagetest.php" enctype="multipart/form-data">
   <textarea name="body" required></textarea>
   <div style="margin: 1em 0;">
-    <input type="file" accept="image/*" name="image" id="image-input">
+  <input type="file" accept="image/*" name="image" id="imageInput">
   </div>
   <button type="submit">送信</button>
 </form>
@@ -81,26 +72,18 @@ $select_sth->execute();
 <?php endforeach ?>
 
 <script>
-// ファイル選択のパーツ（inputタグ）を取得
-const imageInput = document.getElementById('image-input');
-
-// ファイルが選択された（変更された）ときに動くイベントを設定
-imageInput.addEventListener('change', function() {
-  // 選択されたファイルが存在するかチェック
-  if (this.files && this.files[0]) {
-    const file = this.files[0];
-    
-    // 5MBをバイト単位に計算
-    // 5 × 1024 (KB) × 1024 (Byte) = 5,242,880 Byte
-    const maxSize = 5 * 1024 * 1024; 
-
-    // 選択されたファイルのサイズが5MBを超えている場合
-    if (file.size > maxSize) {
-      alert('ファイルサイズが大きすぎます。5MB以下の画像を選択してください。');
-      
-      // 選択されたファイルを強制的にクリア（キャンセル）する
-      this.value = '';
+document.addEventListener("DOMContentLoaded", () => {
+  const imageInput = document.getElementById("imageInput");
+  imageInput.addEventListener("change", () => {
+    if (imageInput.files.length < 1) {
+      // 未選択の場合
+      return;
     }
-  }
+    if (imageInput.files[0].size > 5 * 1024 * 1024) {
+      // ファイルが5MBより多い場合
+      alert("5MB以下のファイルを選択してください。");
+      imageInput.value = "";
+    }
+  });
 });
 </script>
