@@ -57,7 +57,7 @@ cd dockertest
 
 ### screen
 - screenコマンドをたたいてscreenを起動して作業をします。
-　screenは標準で入っています。
+screenは標準で入っています。
 ```bash
 screen
 ```
@@ -68,7 +68,7 @@ vim compose.yml
 ```
 設定ファイルを作成し、リポジトリ内に挙げられているcompose.ymlの内容をコピペする
 
-起動方法
+### 起動方法
 ```bash
 docker compose up
 ```
@@ -96,7 +96,7 @@ vim Dockerfile
 ```
 中身はリポジトリ内のDokerfileの内容をコピペ
 
-### ある程度環境構築が完了したら
+## ある程度環境構築が完了したら
 `docker compose build`する
 
 - build中にエラーが発生した場合
