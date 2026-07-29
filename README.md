@@ -150,7 +150,7 @@ CREATE TABLE `bbs_entries` (
 ALTER TABLE `bbs_entries` ADD COLUMN image_filename TEXT DEFAULT NULL;
 ```
 
-これらを行ったのち、docker compose build`した後に、`docker compose up`をする
+これらを行ったのち、`docker compose build`した後に、`docker compose up`をする
 
 ## ブラウザから確認
 `http://EC2インスタンスのIPアドレス/bbsimagetest.php`にブラウザからアクセスして動作を確認
