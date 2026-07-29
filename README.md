@@ -69,13 +69,15 @@ vim ~/.screenrc
 ```
 
 
-## docker compose
+# 起動するための準備
+## compose.yml
 ```bash
 vim compose.yml
 ```
 設定ファイルを作成し、リポジトリ内に挙げられているcompose.ymlの内容をコピペする
 
 ### 起動方法
+※　今の段階では起動できません
 ```bash
 docker compose up
 ```
