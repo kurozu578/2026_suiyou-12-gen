@@ -105,6 +105,11 @@ vim Dockerfile
 ```
 中身はリポジトリ内のDokerfileの内容をコピペ
 
+## 配信するファイルを置くディレクトリを作成
+```bash
+mkdir public
+```
+
 ## ある程度環境構築が完了したら
 `docker compose build`する
 
@@ -116,19 +121,8 @@ BUILDX_URL=$(curl -s https://api.github.com/repos/docker/buildx/releases/latest 
 curl -L $BUILDX_URL -o ~/.docker/cli-plugins/docker-buildx
 chmod +x ~/.docker/cli-plugins/docker-buildx
 ```
-こちらを実行したのちもう一度buildします。
+こちらを実行したのちもう一度`build`します。
 
-## 配信するファイルを作成
-- ディレクトリを作成
-```bash
-mkdir public
-```
-
-- 配信するファイルを作成
-```bash
-vim public/bbsimagetest.php
-```
-中身はリポジトリ内のものをコピペ
 
 
  ## mysql
@@ -151,6 +145,14 @@ ALTER TABLE `bbs_entries` ADD COLUMN image_filename TEXT DEFAULT NULL;
 ```
 
 これらを行ったのち、`docker compose build`した後に、`docker compose up`をする
+
+## 掲示板作成
+ファイルをpublicディレクトリ内に作ります
+
+```bash
+vim public/bbsimagetest.php
+```
+中身はリポジトリ内のものをコピペ
 
 ## ブラウザから確認
 `http://EC2インスタンスのIPアドレス/bbsimagetest.php`にブラウザからアクセスして動作を確認
