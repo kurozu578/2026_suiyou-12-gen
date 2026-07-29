@@ -118,6 +118,19 @@ chmod +x ~/.docker/cli-plugins/docker-buildx
 ```
 こちらを実行したのちもう一度buildします。
 
+## 配信するファイルを作成
+- ディレクトリを作成
+```bash
+mkdir public
+```
+
+- 配信するファイルを作成
+```bash
+vim public/bbsimagetest.php
+```
+中身はリポジトリ内のものをコピペ
+
+
  ## mysql
 ```bash
  docker compose exec mysql mysql example_db
@@ -138,18 +151,6 @@ ALTER TABLE `bbs_entries` ADD COLUMN image_filename TEXT DEFAULT NULL;
 ```
 
 これらを行ったのち、docker compose build`した後に、`docker compose up`をする
-
-## 配信するファイルを作成
-- ディレクトリを作成
-```bash
-mkdir public
-```
-
-- 配信するファイルを作成
-```bash
-vim public/bbsimagetest.php
-```
-中身はリポジトリ内のものをコピペ
 
 ## ブラウザから確認
 `http://EC2インスタンスのIPアドレス/bbsimagetest.php`にブラウザからアクセスして動作を確認
