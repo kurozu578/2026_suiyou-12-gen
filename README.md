@@ -70,47 +70,17 @@ vim ~/.screenrc
 
 
 # 起動するための準備
-## compose.yml
+## Gitインストール
 ```bash
-vim compose.yml
-```
-設定ファイルを作成し、リポジトリ内に挙げられているcompose.ymlの内容をコピペする
-
-### 起動方法
-※　今の段階では起動できません
-```bash
-docker compose up
-```
-毎回これで立ち上げを行います
-
-ブラウザのURLのところで`http://IPアドレス`と入力するとサイトが表示されます（後で使う）
-
-## nginx
-### nginxの設定ファイル
-- 設定ファイル用のディレクトリ作成
-```bash
-mkdir nginx
-mkdir nginx/conf.d
+sudo yum install git -y
 ```
 
-- 設定ファイルを作成
+## git clone
 ```bash
-vim nginx/conf.d/default.conf
-```
-中身はリポジトリ内のdefault.confをコピペ
-
-## Dockerfileの作成
-```bash
-vim Dockerfile
-```
-中身はリポジトリ内のDokerfileの内容をコピペ
-
-## 配信するファイルを置くディレクトリを作成
-```bash
-mkdir public
+git clone https://github.com/kurozu578/2026_suiyou-12-gen.git
 ```
 
-## ある程度環境構築が完了したら
+## clone出来たら
 `docker compose build`する
 
 - build中にエラーが発生した場合
@@ -143,14 +113,6 @@ ALTER TABLE `bbs_entries` ADD COLUMN image_filename TEXT DEFAULT NULL;
 ```
 
 これらを行ったのち、`docker compose build`した後に、`docker compose up`をする
-
-## 掲示板作成
-ファイルをpublicディレクトリ内に作ります
-
-```bash
-vim public/bbsimagetest.php
-```
-中身はリポジトリ内のものをコピペ
 
 ## ブラウザから確認
 `http://EC2インスタンスのIPアドレス/bbsimagetest.php`にブラウザからアクセスして動作を確認
