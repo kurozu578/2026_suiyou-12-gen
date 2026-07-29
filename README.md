@@ -80,6 +80,11 @@ sudo yum install git -y
 git clone https://github.com/kurozu578/2026_suiyou-12-gen.git
 ```
 
+ディレクトリに移動します
+```bash
+cd 2026_suiyou-12-gen/
+```
+
 ## clone出来たら
 `docker compose build`する
 
