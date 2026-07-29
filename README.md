@@ -121,11 +121,9 @@ BUILDX_URL=$(curl -s https://api.github.com/repos/docker/buildx/releases/latest 
 curl -L $BUILDX_URL -o ~/.docker/cli-plugins/docker-buildx
 chmod +x ~/.docker/cli-plugins/docker-buildx
 ```
-こちらを実行したのちもう一度`build`します。
+これらを行ったのち、`docker compose build`した後に、`docker compose up`をする
 
-
-
- ## mysql
+## mysql
 ```bash
  docker compose exec mysql mysql example_db
 ```
