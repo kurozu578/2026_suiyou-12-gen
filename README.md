@@ -47,14 +47,6 @@ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 ```
 
-## dockertestを作成
-- 作業用ディレクトリdockertestを作成し、作業用ディレクトリに移動します
-
-```bash
-mkdir dockertest
-cd dockertest
-```
-
 ## screen
 screenコマンドをたたいてscreenを起動して作業をします。
 screenは標準で入っています。
