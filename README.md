@@ -55,12 +55,19 @@ mkdir dockertest
 cd dockertest
 ```
 
-### screen
-- screenコマンドをたたいてscreenを起動して作業をします。
+## screen
+screenコマンドをたたいてscreenを起動して作業をします。
 screenは標準で入っています。
 ```bash
 screen
 ```
+
+### .screenrc
+設定ファイルを編集してカスタマイズします。内容は第3回の授業を参考にします。
+```bash
+vim ~/.screenrc
+```
+
 
 ## docker compose
 ```bash
