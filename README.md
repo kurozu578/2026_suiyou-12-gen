@@ -1,8 +1,3 @@
-## AWS EC2インスタンスにSSHでログイン
-```bash
- ssh ec2-user@{IPアドレス} -i {秘密鍵ファイルのパス}　
-```
-
 ## vimのインストール
 ```bash
 sudo yum install vim -y
@@ -28,10 +23,6 @@ sudo usermod -a -G docker ec2-user
 ```
 
 一度ログアウトして、再起動する
-```bash
-exit logout
-ssh ec2-user@{IPアドレス} -i {秘密鍵ファイルのパス}
- ```
 
 ### Docker Composeのインストール方法
 ```bash
