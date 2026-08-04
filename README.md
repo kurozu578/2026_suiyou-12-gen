@@ -1,13 +1,3 @@
-## vimのインストール
-```bash
-sudo yum install vim -y
-```
-
-- vimをインストールしたのち、設定ファイルを書く
-```bash
-vim ~/.vimrc
- ```
-中身はネットで調べたり、授業資料第2回のvimの設定のおすすめ設定などを追加するなどします。
 
  ## Docker
  ### Dockerインストールと自動起動化
@@ -38,19 +28,6 @@ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 ```
 
-## screen
-screenコマンドをたたいてscreenを起動して作業をします。
-screenは標準で入っています。
-```bash
-screen
-```
-
-### .screenrc
-設定ファイルを編集してカスタマイズします。内容はネットで調べたり、第3回の授業を参考にします。
-```bash
-vim ~/.screenrc
-```
-
 
 # 起動するための準備
 ## Gitインストール
@@ -66,6 +43,19 @@ git clone https://github.com/kurozu578/2026_suiyou-12-gen.git
 ディレクトリに移動します
 ```bash
 cd 2026_suiyou-12-gen/
+```
+
+## screen
+screenコマンドをたたいてscreenを起動して作業をします。
+screenは標準で入っています。
+```bash
+screen
+```
+
+### .screenrc
+設定ファイルを編集してカスタマイズします。内容はネットで調べたり、第3回の授業を参考にします。
+```bash
+vim ~/.screenrc
 ```
 
 ## clone出来たら
