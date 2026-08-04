@@ -90,6 +90,12 @@ CREATE TABLE `bbs_entries` (
 ALTER TABLE `bbs_entries` ADD COLUMN image_filename TEXT DEFAULT NULL;
 ```
 
+3. テーブルの作成が完了したら、MySQLから切断します。
+```sql
+exit
+```
+
+
 これらを行ったのち、`docker compose build`した後に、`docker compose up`をする
 
 ## ブラウザから確認
