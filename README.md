@@ -52,11 +52,6 @@ screenは標準で入っています。
 screen
 ```
 
-### .screenrc
-設定ファイルを編集してカスタマイズします。内容はネットで調べたり、第3回の授業を参考にします。
-```bash
-vim ~/.screenrc
-```
 
 ## clone出来たら
 `docker compose build`する
